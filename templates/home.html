@@ -1,0 +1,83 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GOOGLE CLASSROOM</title>
+</head>
+<body>
+    
+
+
+
+
+
+
+
+
+        <br>
+                  <a href="/signup"><button>signup</button></a>
+</body>
+</html>
+
+   {%for i in all_d%}
+   <h1>{{all_d[i]['name']}}</h1>
+   <h2> {{all_d[i]['text']}}</h2>
+   <h3>{{all_d[i]['imagelink']}}</h3>
+   {%endfor%}
+   <a href="classess"> Add </a>
+
+
+
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>GOOGLE CLASSROOM</h1>
+</div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Class 1</h3>
+      <p>whatever whatever</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Class 2</h3>
+      <p>blablabla</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Class 3</h3>        
+      <p>ghghghghgh</p>
+    </div>
+  </div>
+</div>
+
+
+<a href="/todo"><button>To do </button></a>
+<a href="/home"><button>home</button></a>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+   {%for i in all_d%}
+   <h1>{{all_d[i]['title']}}</h1>
+   <h2> {{all_d[i]['text']}}</h2>
+   <h3>{{all_d[i]['imagelink']}}</h3>
+   {%endfor%}
+   <a href="add_tweet"> Add </a>
+</body>
+</html>
