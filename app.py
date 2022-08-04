@@ -36,14 +36,15 @@ def signup():
     if request.method == 'GET':
         return render_template("signup.html")
     else:
-        email = request.form['email']
+        email = request.form["email"]
         password = request.form["password"]
         login_session['user']= auth.create_user_with_email_and_password(email, password)
-        student =  {"email": request.form['email'], "password": request.form['password']}
+        student =  {"email": request.form['email'], "password": request.form ['password']}
 
         db.child("Users").child(login_session['user']['localId']).set(student)
 
-        return redirect(url_for('classes'))
+        return render_template("home.html")
+
         # except:
         #     print("sorry")
         #     return render_template("signup.html")
@@ -58,10 +59,10 @@ def signin():
     error = ""
     if request.method == 'POST':
         email = request.form['email']
-        password = request.form["password"]
+        password = request.form['password']
         try:
             login_session['user'] = auth.sign_in_with_email_and_password(email, password)
-            return redirect(url_for('classes'))
+            return render_template("home.html")
         except:
             error = "Authentication failed"
             return render_template("signin.html")
@@ -71,24 +72,79 @@ def signin():
 
 
 @app.route('/classes', methods=['GET', 'POST'])
-def classes():
+def add_class():
     error=""
     if request.method =="POST":
-        name = request.form['name']
-        text = request.form['text']
-        image_link = request.form['image link']
+        name = request.form('name')
+        text = request.form('text')
+    
     
 
-        new_class = {"name": request.form['name'], "text": request.form['text'], "image_link": request.form['image link']}
+        new_class = {"name": request.form('name'), "text": request.form('text')}
         db.child("new_class").push(new_class)
             
-        return redirect (url_for("new_class"))
-
+        return render_template("home.html",classes=db.child("add_class").get().val())
     else:
 
         print ("class can't be created")
         return render_template ("home.html")
 
+
+
+@app.route('/homework', methods=['GET', 'POST'])
+def to_do():
+    error=""
+    if request.method =="POST":
+        class_name = request.form('class name')
+        homoework = request.form('homework')
+        Due_date = request.form('Due date')
+    
+
+        to_do = {"class_name": request.form('name'), "homoework": request.form('homework'), "Due_date": request.form('Due date')}
+        db.child("new_class").push(to_do)
+            
+        return render_template("todo.html", to_do=db.child("to_do").get().val())
+    else:
+
+        print ("homework cant be posted")
+        return render_template ("Homework.html")
+
+
+@app.route('/todo', methods=['GET', 'POST'])
+def homework():
+    error=""
+    if request.method =="POST":
+        class_name = request.form('class name')
+        homoework = request.form('homework')
+        Due_date = request.form('Due date')
+    
+
+        homework = {"class_name": request.form['class name'], "homoework": request.form['homework'], "Due_date": request.form('Due date')}
+        db.child("new_class").push(homework)
+            
+        return render_template("todo.html", to_do=db.child("to_do").get.val())
+    else:
+        print ("homework cant be posted")
+        return render_template ("todo.html")
+
+
+@app.route('/addclass', methods=['GET', 'POST'])
+def Classes():
+    error=""
+    if request.method =="POST":
+        name = request.form['name']
+        text = request.form['text']
+
+    
+
+        add_class = {"name": request.form['name'], "text": request.form['text']}
+        db.child("add_class").push(add_class)
+            
+        return render_template("home.html",classes=db.child("add_class").get().val())
+    else:
+
+        print ("class can't be created")
+        return render_template ("addClass.html")
 
 
 

@@ -2,28 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Signup</title>
+    <title>Add homework</title>
 </head>
 <body>
-    <form method="POST" action="/signup">
+    <form method="POST" action="/todo">
 
 
               <h4>
-                Create an account
+                Homework time!
               </h4>
 
-              <p >
-                let's sign up!
-              </p>
-
               <div >
 
 
               <div >
 
-                <label>Email address*</label>
+                <label>class</label>
                 <div>
-                  <input type="email"  name="email" id="emailStr" required>
+                  <input type="text"  name="class">
                   <div >
 
                   </div>
@@ -36,9 +32,9 @@
               <div >
 
 
-                <label>Password*</label>
+                <label>Homework</label>
                 <div class="input-group">
-                  <input type="password"  name="password" minlength="6">
+                  <input type="text"  name="homework">
                   <div>
 
                   </div>
@@ -48,6 +44,20 @@
 
               </div>
 
+<div >
+
+
+                <label>Due date</label>
+                <div class="input-group">
+                  <input type="text"  name="due_date">
+                  <div>
+
+                  </div>
+                </div>
+
+              </div>
+
+              </div>
 
               <div >
 
@@ -64,7 +74,7 @@
               </div>
     </form>
     <br>
-        <a href="/"><button>signin</button></a>
+        <a href="/classes"><button>home</button></a>
 
 </body>
 </html>

@@ -1,8 +1,9 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GOOGLE CLASSROOM</title>
+    <title>CLASSY</title>
+    <!-- <link href="{{url_for('static', filename = 'css/style.css')}}" rel="stylesheet" /> -->
 </head>
 <body>
     
@@ -15,7 +16,7 @@
 
 
         <br>
-                  <a href="/signup"><button>signup</button></a>
+                  
 </body>
 </html>
 
@@ -24,7 +25,6 @@
    <h2> {{all_d[i]['text']}}</h2>
    <h3>{{all_d[i]['imagelink']}}</h3>
    {%endfor%}
-   <a href="classess"> Add </a>
 
 
 
@@ -38,30 +38,32 @@
 <body>
 
 <div class="jumbotron text-center">
-  <h1>GOOGLE CLASSROOM</h1>
+  <h1>~CLASSY~</h1>
 </div>
   
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
-      <h3>Class 1</h3>
-      <p>whatever whatever</p>
+      <h3>Math</h3>
+      <p>material: Algebra</p>
     </div>
     <div class="col-sm-4">
-      <h3>Class 2</h3>
-      <p>blablabla</p>
+      <h3>Physics</h3>
+      <p>material: Gravity</p>
     </div>
     <div class="col-sm-4">
-      <h3>Class 3</h3>        
-      <p>ghghghghgh</p>
+      <h3>Chemistry</h3>        
+      <p>material ionic bonds</p>
     </div>
   </div>
 </div>
 
 
 <a href="/todo"><button>To do </button></a>
-<a href="/home"><button>home</button></a>
 
+<a href="/homework"><button>add homework </button></a>
+
+<a href="/addclass"><button>add class </button></a>
 </body>
 </html>
 
@@ -73,11 +75,19 @@
     <title></title>
 </head>
 <body>
-   {%for i in all_d%}
-   <h1>{{all_d[i]['title']}}</h1>
-   <h2> {{all_d[i]['text']}}</h2>
-   <h3>{{all_d[i]['imagelink']}}</h3>
-   {%endfor%}
-   <a href="add_tweet"> Add </a>
+
+   {%for i in classes%}
+
+
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>{{classes[i]['name']}}</h3>
+      <p>{{classes[i]['text']}}</p>
+    </div>
+ </div>
+</div>
+
+  {%endfor%}
 </body>
 </html>

@@ -31,10 +31,21 @@ tr:nth-child(even) {
   </tr>
   <tr>
     <td>physics</td>
-    <td>WS 4 </td>
-    <td>2/2/2022</td>
+    <td>WS 4</td>
+    <td>04/08/2022</td>
   </tr>
+
+{%for v in homework%}
+     <tr>
+    <th>{{homework[v]['class_name']}}</th>
+    <th>{{homework[v]['homework']}}</th>
+    <th>{{homework[v]['Due_date']}}</th>
+  </tr>
+   {%endfor%}
+  
+  <a href="/classes"><button>home</button></a> 
+
 </table>
-<a href="/home"><button>home</button></a>
+
 </body>
 </html>
